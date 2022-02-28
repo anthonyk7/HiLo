@@ -1,12 +1,45 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html
-        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-    <title>Game</title>
-</head>
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>Guessing Game</title>
+    <link href="resource/css/stylesheet.css" rel="stylesheet" type="text/css"/>'
+    <script type="text/javascript" src="resource/javascript/myjs.js"/>
 
-</body>
+</h:head>
+<h:body>
+
+    <h3 style="text-align: center; font-size: 43px; border-bottom: solid black 3px;
+            background-color:darkblue; color: white;"
+    >Guess the number</h3>
+
+    <div id="gameDisplayMessage">
+        <h3>Your Tries: #{gameBean.amountOfTries}</h3>
+    </div>
+    <h:form>
+
+
+        <div id="game">
+            <h:panelGrid style="margin: auto ">
+                <h:inputText value="#{gameBean.usersAnswer}"
+                             style="border: black solid 2px; "/>
+
+                <h:commandButton value="GUESS" action="#{gameBean.play()}"
+                                 style="background-color: greenyellow;
+                             border: black 2px solid;"/>
+                <br/>
+                <h:commandButton value="RESTART" action="#{gameBean.restart()}"
+                                 style="background-color: orange;
+                             border: black 2px solid;"/>
+            </h:panelGrid>
+        </div>
+    </h:form>
+
+    <h3>#{gameBean.displayMessage}</h3>
+
+    <h3>#{gameBean.hint}</h3>
+</h:body>
 </html>
+
