@@ -84,12 +84,11 @@ public class GameBean implements Serializable {
         }
     }
 
-    /**
-     * restarts and starts a new game
-     */
+    /** restarts and starts a new game */
     public String restart() {
         amountOfTries = 1;
         displayMessage = "";
+        hint = "";
         this.secretNumber = +(int) (100 * Math.random());
         return "index";
     }
